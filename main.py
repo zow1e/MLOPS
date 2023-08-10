@@ -36,7 +36,7 @@ from email.message import EmailMessage
 # Check for payment paid/received from the link above
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'I have a dream'
+app.config['SECRET_KEY'] = 'sweet like candy'
 app.config['UPLOAD_FOLDER'] = 'static/images'
 
 @app.before_request
@@ -66,25 +66,74 @@ def page_not_found(e):
 # login_manager.init_app(app)
 # @login_manager.user_loader
 
-def load_user(user_id):
-    return User.get(user_id)
+# def load_user(user_id):
+#     return User.get(user_id)
 
-def get_id(val, my_dict):
-    for key, value in my_dict.items():
-        if val == value.get_email():
-            return key
-    return 'None'
+# def get_id(val, my_dict):
+#     for key, value in my_dict.items():
+#         if val == value.get_email():
+#             return key
+#     return 'None'
 
-def get_pw(val, my_dict):
-    for key, value in my_dict.items():
-        if val == value.get_password():
-            return key
-    return 'None'
-def get_name(val, my_dict):
-    for key, value in my_dict.items():
-        if val == value.get_password():
-            return key
-    return 'None'
+# def get_pw(val, my_dict):
+#     for key, value in my_dict.items():
+#         if val == value.get_password():
+#             return key
+#     return 'None'
+# def get_name(val, my_dict):
+#     for key, value in my_dict.items():
+#         if val == value.get_password():
+#             return key
+#     return 'None'
+
+@app.route('/anomalyDetectionInput', methods=['GET', 'POST'])
+def create_user():
+    signup = signupForm(request.form)
+    if request.method == 'POST':
+
+        users_dict = {}
+        db = shelve.open('storage.db', 'c')
+
+        try:
+            users_dict = db['Users']
+        except:
+            print("Error in retrieving Users from storage.db.")
+        
+        # if signup.password.data != signup.comfirmpw.data:
+        #     flash('Passwords do not match.', 'danger')
+
+        # else:
+
+        # key = get_id(signup.email.data, users_dict)
+        # if key == 'None': 
+
+        user = account.Account(signup.Fyear.data, signup.Fmonth.data, signup.DEPname.data.upper(), 
+                                signup.DIVname.data.upper(), signup.MERname.data.upper(), signup.category.data, 
+                                signup.transDate.data, signup.amount.data)
+        users_dict[user.get_id()] = user
+        db['Users'] = users_dict
+
+        # Test codes
+        # users_dict = db['Users']
+        # user = users_dict[user.get_id()]
+        # print(user.get_name(), "was stored in storage.db successfully with user_id ==", user.get_user_id())
+
+        db.close()
+
+        return redirect(url_for('anomalyResults'))
+
+        # else:
+        #     flash('Email is used for an existing account.', 'danger')
+
+    return render_template('corporateInput/signup.html', form=signup)
+
+
+@app.route('/anomalyResults')
+def anomalyResults():
+   return render_template('corporateInput/results.html')
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -142,51 +191,6 @@ def adminlogout():
    session.pop('admin_in')
    session.pop('user_id')
    return redirect(url_for('home'))
-
-
-@app.route('/anomalyDetectionInput', methods=['GET', 'POST'])
-def create_user():
-    signup = signupForm(request.form)
-    if request.method == 'POST':
-
-        users_dict = {}
-        db = shelve.open('storage.db', 'c')
-
-        try:
-            users_dict = db['Users']
-        except:
-            print("Error in retrieving Users from storage.db.")
-        
-        if signup.password.data != signup.comfirmpw.data:
-            flash('Passwords do not match.', 'danger')
-
-        else:
-
-            key = get_id(signup.email.data, users_dict)
-            if key == 'None': 
-
-                user = account.Account(signup.name.data, signup.email.data, signup.password.data, signup.birthdate.data)
-                users_dict[user.get_user_id()] = user
-                db['Users'] = users_dict
-
-                # Test codes
-                users_dict = db['Users']
-                user = users_dict[user.get_user_id()]
-                # print(user.get_name(), "was stored in storage.db successfully with user_id ==", user.get_user_id())
-
-                db.close()
-
-                session['user_created'] = user.get_name()
-
-                session['username'] = signup.name.data
-                
-
-                return redirect(url_for('login'))
-
-            else:
-                flash('Email is used for an existing account.', 'danger')
-
-    return render_template('corporateInput/signup.html', form=signup)
 
 
 # reset password

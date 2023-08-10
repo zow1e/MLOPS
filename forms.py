@@ -3,17 +3,33 @@ from wtforms import Form, StringField, SelectField, TextAreaField, PasswordField
 from wtforms.fields import EmailField, DateField
 from flask_wtf import FlaskForm
 
-class signupForm(Form):
-    DEPname = StringField('Department Name', [validators.Length(min=1, max=150), validators.DataRequired()])
-    DIVname = StringField('Division Name', [validators.Length(min=1, max=150), validators.DataRequired()])
-    email = EmailField('Email', [validators.Email(), validators.DataRequired()])
-    birthdate = DateField('Transaction Date', [validators.length(max=8), validators.Optional()])
+import pandas as pd
+import datetime
 
+nowDate = datetime.datetime.now().year
+years = [(year, str(year)) for year in range(nowDate - 4, nowDate + 1)]
+months = list(range(1, 13))
+
+csv_data = pd.read_csv('C:/Users/zowie/OneDrive/Desktop/MLOPS/assignmentPoetry/AnomalyPrediction/data/processed/cleanAnomaly.csv')  # Read CSV file
+DIVunique = sorted(csv_data['DIV_NAME'].unique()) # Get unique values from the specified column
+DIVchoices = [(value, value) for value in DIVunique]
+
+CATunique = sorted(csv_data['CAT_DESC'].unique()) # Get unique values from the specified column
+CATchoices = [(value, value) for value in CATunique]
+
+class signupForm(Form):
+    Fyear = SelectField('Fiscal Year', [validators.DataRequired()], choices=years, default='2023')
+    Fmonth = SelectField('Fiscal Month', [validators.DataRequired()], choices=months, default='1')
+    DEPname = StringField('Department Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Dept of education"})
+    DIVname = SelectField('Division Name', [validators.DataRequired()], choices=DIVchoices)
+    MERname = StringField('Merchant Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Amazon.com"})
+    transDate = DateField('Transaction Date', [validators.length(max=8), validators.Optional()])
+    category = SelectField('Category', [validators.DataRequired()], choices=CATchoices)
+    amount = IntegerField('Amount in SGD', [validators.NumberRange(min=1, max=100000), validators.DataRequired()])
+
+    email = EmailField('Email', [validators.Email(), validators.DataRequired()])
     password = PasswordField('Password', [validators.Length(min=8, max=20), validators.DataRequired()])
     comfirmpw = PasswordField('Confirm Password', [validators.Length(min=8, max=20), validators.DataRequired()])
-
-    category = SelectField('Category', [validators.DataRequired()], choices=[('', 'Select'), ('F', 'Female'), ('M', 'Male')], default='')
-    amount = IntegerField('Amount', [validators.NumberRange(min=1, max=100000), validators.DataRequired()])
     
 
 class loginForm(Form):

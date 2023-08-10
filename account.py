@@ -2,63 +2,63 @@ import uuid
 
 class Account:
 
- 
+    def __init__(self, fyear, fmonth, DEPname, DIVname, merchant, category, trans_dt, amt):
 
-    def __init__(self, name, email, password, birthdate):
-
-        self.__user_id = str(uuid.uuid4())
-        self.__name = name
-        self.__email = email
-        self.__password = password
-        self.__birthdate = birthdate
-        self.__order_item = None
-
-        self.__payment = []
-        self.__cart_item = []
-        self.__paid_item = []
+        self.__data_id = str(uuid.uuid4())
+        self.__fyear = fyear
+        self.__fmonth = fmonth
+        self.__DEPname = DEPname
+        self.__DIVname = DIVname
+        self.__merchant = merchant
+        self.__category = category
+        self.__trans_dt = trans_dt
+        self.__amt = amt
 
 
-        
-    def get_user_id(self):
-        return self.__user_id
-    def set_user_id(self, user_id):
-        self.__user_id = user_id
-
-    def get_name(self):
-        return self.__name
-    def set_name(self, name):
-        self.__name = name
-
-    def get_email(self):
-        return self.__email
-    def set_email(self, email):
-        self.__email = email
-
-    def get_birthdate(self):
-        return self.__birthdate
-    def set_get_birthdate(self, birthdate):
-        self.__birthdate = birthdate
-
-    def get_password(self):
-        return self.__password
-    def set_password(self, password):
-        self.__password = password
-
-
-
-    def get_cart_item(self):
-        return self.__cart_item
-        
-    def set_cart_item(self, cart_item):
-        self.__cart_item.append(cart_item)
-
-    def get_payment(self):
-        return self.__payment
+    def get_id(self):
+        return self.__data_id
+    def set_id(self, data_id):
+        self.__data_id = data_id
     
-    def set_payment(self,payment):
-        self.__payment.append(payment)
-    def get_paid_item(self):
-        return self.__paid_item
-    
-    def set_paid_item(self, paid_item):
-        self.__paid_item.append(paid_item)
+    def get_fyear(self):
+        return self.__fyear
+    def set_fyear(self, fyear):
+        self.__fyear = fyear
+
+    def get_fmonth(self):
+        return self.__fmonth
+    def set_fmonth(self, fmonth):
+        self.__fmonth = fmonth
+
+    def get_DEPname(self):
+        return self.__DEPname
+    def set_DEPname(self, DEPname):
+        self.__DEPname = DEPname
+
+    def get_DIVname(self):
+        return self.__DIVname
+    def set_DIVname(self, DIVname):
+        self.__DIVname = DIVname
+
+
+    def get_merchant(self):
+        return self.__merchant
+    def set_get_merchant(self, merchant):
+        self.__merchant = merchant
+
+    def get_category(self):
+        return self.__category
+    def set_get_category(self, category):
+        self.__category = category
+
+    def get_trans_dt(self):
+        return self.__trans_dt
+    def set_get_trans_dt(self, trans_dt):
+        self.__trans_dt = trans_dt
+
+    def get_amt(self):
+        return self.__amt
+    def set_get_amt(self, amt):
+        self.__amt = amt
+
+
