@@ -2,6 +2,11 @@ import os
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from forms import createEvent, signupForm, loginForm, forgetpw, changPw,  addOrder, CreateQnForm
 import shelve, account
+import pandas as pd
+import numpy as np
+
+import joblib
+from pycaret.anomaly import *
 
 # session timeout
 import flask
@@ -59,6 +64,24 @@ def before_request():
 def page_not_found(e):
     return render_template('error404.html'), 404
 
+modelFile = '../models/iforest_pipeline'
+anomalyModel = load_model(modelFile)
+
+csv_data = pd.read_csv('../data/processed/cleanAnomaly.csv')  # Read CSV file
+cols = csv_data.columns
+
+
+# --- functions
+
+def isweekday(dd):
+    weekno = dd.weekday()
+
+    if weekno < 5:
+        return 1
+    else:  # 5 Sat, 6 Sun
+        return 0
+
+
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Zowie
@@ -113,24 +136,59 @@ def create_user():
         users_dict[user.get_id()] = user
         db['Users'] = users_dict
 
+        db.close()
+
+        print('new data')
+        # pre process data
+        # convert date to datetime64 object
+        transDate = pd.to_datetime(signup.transDate.data)
+
+        # Create a dictionary with original column names
+        userNewData = [{
+            'FISCAL_YR': int(signup.Fyear.data),
+            'FISCAL_MTH': int(signup.Fmonth.data),
+            'DEPT_NAME': signup.DEPname.data.upper(),
+            'DIV_NAME': signup.DIVname.data.upper(),
+            'MERCHANT': signup.MERname.data.upper(),
+            'CAT_DESC': signup.category.data,
+            'TRANS_DT' : transDate,
+            'AMT': float(signup.amount.data),
+            'DayOfWeek': transDate.strftime('%A'),
+            'isWeekday': isweekday(transDate)
+        }]
+
+        user_df = pd.DataFrame(userNewData)
+
         # Test codes
         # users_dict = db['Users']
         # user = users_dict[user.get_id()]
         # print(user.get_name(), "was stored in storage.db successfully with user_id ==", user.get_user_id())
+        
 
-        db.close()
+        # perform perdiction
+        prediction = predict_model(anomalyModel, data=user_df)
+        print(prediction.Anomaly)
+        print(prediction.Anomaly_Score)
 
+        pred = prediction.Anomaly[0]
+        session['predLabel'] = int(pred)
+        print('resultofanomaly : ',pred)
+        # label = int(prediction.Label[0])
         return redirect(url_for('anomalyResults'))
 
-        # else:
-        #     flash('Email is used for an existing account.', 'danger')
 
     return render_template('corporateInput/signup.html', form=signup)
 
-
+    
 @app.route('/anomalyResults')
 def anomalyResults():
-   return render_template('corporateInput/results.html')
+   print('results page')
+   predLabel = session.get('predLabel')
+   if predLabel == 0:
+       newLabel='Not an anomaly'
+   else:
+       newLabel='Anomaly!'
+   return render_template('corporateInput/results.html', predLabel=newLabel)
 
 
 

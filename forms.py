@@ -10,10 +10,12 @@ nowDate = datetime.datetime.now().year
 years = [(year, str(year)) for year in range(nowDate - 4, nowDate + 1)]
 months = list(range(1, 13))
 
-csv_data = pd.read_csv('C:/Users/zowie/OneDrive/Desktop/MLOPS/assignmentPoetry/AnomalyPrediction/data/processed/cleanAnomaly.csv')  # Read CSV file
+csv_data = pd.read_csv('../data/processed/cleanAnomaly.csv')  # Read CSV file
+csv_data['DIV_NAME'] = csv_data['DIV_NAME'].str.replace('_', ' ')
 DIVunique = sorted(csv_data['DIV_NAME'].unique()) # Get unique values from the specified column
 DIVchoices = [(value, value) for value in DIVunique]
 
+csv_data['CAT_DESC'] = csv_data['CAT_DESC'].str.replace('_', ' ')
 CATunique = sorted(csv_data['CAT_DESC'].unique()) # Get unique values from the specified column
 CATchoices = [(value, value) for value in CATunique]
 
