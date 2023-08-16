@@ -6,32 +6,60 @@ from flask_wtf import FlaskForm
 import pandas as pd
 import datetime
 
+# from main import og_data
+
+# dataFile = og_data
+# # print(dataFile)
+
+
 nowDate = datetime.datetime.now().year
 years = [(year, str(year)) for year in range(nowDate - 4, nowDate + 1)]
 months = list(range(1, 13))
 
-csv_data = pd.read_csv('../data/processed/cleanAnomaly.csv')  # Read CSV file
-csv_data['DIV_NAME'] = csv_data['DIV_NAME'].str.replace('_', ' ')
-DIVunique = sorted(csv_data['DIV_NAME'].unique()) # Get unique values from the specified column
-DIVchoices = [(value, value) for value in DIVunique]
+# div_names = dataFile['DIV_NAME'].str.replace('_', ' ')
+# DIVunique = sorted(div_names.unique())
+# DIVchoices = [(value, value) for value in DIVunique]
 
-csv_data['CAT_DESC'] = csv_data['CAT_DESC'].str.replace('_', ' ')
-CATunique = sorted(csv_data['CAT_DESC'].unique()) # Get unique values from the specified column
-CATchoices = [(value, value) for value in CATunique]
+# categories = dataFile['CAT_DESC'].str.replace('_', ' ')
+# CATunique = sorted(categories.unique())
+# CATchoices = [(value, value) for value in CATunique]
+
+
 
 class signupForm(Form):
-    Fyear = SelectField('Fiscal Year', [validators.DataRequired()], choices=years, default='2023')
-    Fmonth = SelectField('Fiscal Month', [validators.DataRequired()], choices=months, default='1')
-    DEPname = StringField('Department Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Dept of education"})
-    DIVname = SelectField('Division Name', [validators.DataRequired()], choices=DIVchoices)
-    MERname = StringField('Merchant Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Amazon.com"})
-    transDate = DateField('Transaction Date', [validators.length(max=8), validators.Optional()])
-    category = SelectField('Category', [validators.DataRequired()], choices=CATchoices)
-    amount = IntegerField('Amount in SGD', [validators.NumberRange(min=1, max=100000), validators.DataRequired()])
 
-    email = EmailField('Email', [validators.Email(), validators.DataRequired()])
-    password = PasswordField('Password', [validators.Length(min=8, max=20), validators.DataRequired()])
-    comfirmpw = PasswordField('Confirm Password', [validators.Length(min=8, max=20), validators.DataRequired()])
+    # def __init__(self, og_data=None):
+    #     self.og_data = og_data
+    #     print(self.og_data.head())
+    #     self.setting()
+
+    # def setting(self):
+    #     print(self.og_data.head())
+    #     global DIVchoices, CATchoices
+    #     div_names = self.og_data['DIV_NAME'].str.replace('_', ' ')
+    #     DIVunique = sorted(div_names.unique())
+    #     DIVchoices = [(value, value) for value in DIVunique]
+
+    #     categories = self.og_data['CAT_DESC'].str.replace('_', ' ')
+    #     CATunique = sorted(categories.unique())
+    #     CATchoices = [(value, value) for value in CATunique]
+    #     self.html_set()
+    
+    # def html_set(self):
+        Fyear = SelectField('Fiscal Year', [validators.DataRequired()], choices=years, default='2023')
+        Fmonth = SelectField('Fiscal Month', [validators.DataRequired()], choices=months, default='1')
+        DEPname = StringField('Department Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Dept of education"})
+        DIVname = StringField('Division Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Special needs programs"})
+        # DIVname = SelectField('Division Name', [validators.DataRequired()], choices=DIVchoices)
+        MERname = StringField('Merchant Name', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Amazon.com"})
+        transDate = DateField('Transaction Date', [validators.length(max=8), validators.Optional()])
+        category = StringField('Category', [validators.Length(min=1, max=150), validators.DataRequired()], render_kw={"placeholder": "E.g. Eating places restaurants"})
+        # category = SelectField('Category', [validators.DataRequired()], choices=CATchoices)
+        amount = IntegerField('Amount in SGD', [validators.NumberRange(min=1, max=1000000), validators.DataRequired()])
+
+        # email = EmailField('Email', [validators.Email(), validators.DataRequired()])
+        # password = PasswordField('Password', [validators.Length(min=8, max=20), validators.DataRequired()])
+        # comfirmpw = PasswordField('Confirm Password', [validators.Length(min=8, max=20), validators.DataRequired()])
     
 
 class loginForm(Form):
