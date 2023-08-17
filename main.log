@@ -790,3 +790,27 @@
 [2023-08-16 15:17:17,090][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
 [2023-08-16 15:17:17,095][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
 [2023-08-16 15:17:17,160][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-17 18:09:24,468][werkzeug][INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2023-08-17 18:09:24,468][werkzeug][INFO] - [33mPress CTRL+C to quit[0m
+[2023-08-17 18:09:24,481][werkzeug][INFO] -  * Restarting with stat
+[2023-08-17 18:09:28,086][werkzeug][WARNING] -  * Debugger is active!
+[2023-08-17 18:09:28,098][werkzeug][INFO] -  * Debugger PIN: 527-343-539
+[2023-08-17 23:42:31,200][werkzeug][INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2023-08-17 23:42:31,202][werkzeug][INFO] - [33mPress CTRL+C to quit[0m
+[2023-08-17 23:42:31,204][werkzeug][INFO] -  * Restarting with stat
+[2023-08-17 23:42:35,027][werkzeug][WARNING] -  * Debugger is active!
+[2023-08-17 23:42:35,042][werkzeug][INFO] -  * Debugger PIN: 527-343-539
+[2023-08-17 23:42:38,054][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:42:38] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-17 23:42:38,142][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:42:38] "GET /static/styles/style.css HTTP/1.1" 200 -
+[2023-08-17 23:42:38,195][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:42:38] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-17 23:42:38,481][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:42:38] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-17 23:42:38,565][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:42:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-08-17 23:43:01,351][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:43:01] "[32mPOST /anomalyDetectionInput HTTP/1.1[0m" 302 -
+[2023-08-17 23:43:01,369][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:43:01] "GET /anomalyResults HTTP/1.1" 200 -
+[2023-08-17 23:43:01,411][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:43:01] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-17 23:43:01,426][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:43:01] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-17 23:43:01,469][werkzeug][INFO] - 127.0.0.1 - - [17/Aug/2023 23:43:01] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-17 23:44:38,946][werkzeug][INFO] -  * Detected change in 'C:\\Users\\zowie\\OneDrive\\Desktop\\MLOPS\\cookietest\\webapp\\main.py', reloading
+[2023-08-17 23:44:40,162][werkzeug][INFO] -  * Restarting with stat

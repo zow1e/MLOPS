@@ -76,11 +76,11 @@ def run_configs(config):
     global anomalyModel, cols, csv_data
 
     dataFilePath = config.data.processed
-    csv_data = pd.read_csv(dataFilePath)  # Read CSV file
+    csv_data = pd.read_csv(os.getcwd()+dataFilePath)  # Read CSV file
     cols = csv_data.columns
 
     modelFile = config.pipeline.pipeline1
-    anomalyModel = load_model(modelFile)
+    anomalyModel = load_model(os.getcwd()+modelFile)
 
 
 
