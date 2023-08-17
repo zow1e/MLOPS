@@ -1,7 +1,7 @@
 data:
-  raw: data/raw/sample.csv
-  processed: data/processed/cleanAnomaly.csv
-  final: data/final/final.csv
+  raw: data2/raw/sample.csv
+  processed: data2/processed/cleanAnomaly.csv
+  final: data2/final/final.csv
 
 pipeline:
   pipeline1: models/iforest_pipeline
