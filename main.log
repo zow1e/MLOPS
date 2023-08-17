@@ -749,3 +749,44 @@
 [2023-08-16 14:54:03,069][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 14:54:03] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
 [2023-08-16 14:54:05,268][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 14:54:05] "GET /anomalyDetectionInput HTTP/1.1" 200 -
 [2023-08-16 14:54:05,309][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 14:54:05] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:14:49,226][werkzeug][INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2023-08-16 15:14:49,226][werkzeug][INFO] - [33mPress CTRL+C to quit[0m
+[2023-08-16 15:14:49,226][werkzeug][INFO] -  * Restarting with stat
+[2023-08-16 15:14:53,168][werkzeug][WARNING] -  * Debugger is active!
+[2023-08-16 15:14:53,175][werkzeug][INFO] -  * Debugger PIN: 527-343-539
+[2023-08-16 15:14:55,626][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:55] "[33mGET / HTTP/1.1[0m" 404 -
+[2023-08-16 15:14:55,661][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:55] "GET /static/styles/style.css HTTP/1.1" 200 -
+[2023-08-16 15:14:56,265][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:56] "[33mGET /static/images/logo/emoji.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:14:59,087][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:59] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:14:59,136][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:59] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:14:59,149][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:59] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:14:59,198][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:14:59] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:15:52,115][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:15:52] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:15:52,157][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:15:52] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:15:52,181][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:15:52] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:15:52,260][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:15:52] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:06,340][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:06] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:16:06,386][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:06] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:16:06,397][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:06] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:06,490][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:06] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:13,284][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:13] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:16:13,336][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:13] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:16:13,352][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:13] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:13,386][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:13] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:31,584][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:31] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:16:31,637][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:31] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:16:31,653][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:31] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:31,694][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:31] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:52,618][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:52] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:16:52,666][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:52] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:16:52,682][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:52] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:16:52,731][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:16:52] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:17:01,450][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:01] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:17:01,506][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:01] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:17:01,516][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:01] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:17:01,587][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:01] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:17:17,047][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "GET /anomalyDetectionInput HTTP/1.1" 200 -
+[2023-08-16 15:17:17,090][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[36mGET /static/styles/style.css HTTP/1.1[0m" 304 -
+[2023-08-16 15:17:17,095][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
+[2023-08-16 15:17:17,160][werkzeug][INFO] - 127.0.0.1 - - [16/Aug/2023 15:17:17] "[33mGET /static/images/logo/eventnest%20logo%20png.png HTTP/1.1[0m" 404 -
