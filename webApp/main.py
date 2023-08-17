@@ -23,6 +23,9 @@ from email.message import EmailMessage
 import hydra
 from hydra import utils
 
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 # csv_data=None
 
 # admin name: admin
@@ -76,12 +79,12 @@ def run_configs(config):
     global anomalyModel, cols, csv_data
     # print(os.getcwd())
 
-    dataFilePath = config.data.processed
+    dataFilePath = dir_path + '/'  + config.data.processed
     csv_data = pd.read_csv(dataFilePath)  # Read CSV file
     cols = csv_data.columns
     # os.getcwd()
 
-    modelFile = config.pipeline.pipeline1
+    modelFile = dir_path + '/'  + config.pipeline.pipeline1
     anomalyModel = load_model(modelFile)
 
 
