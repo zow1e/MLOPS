@@ -1,6 +1,6 @@
 pip==23.1.2
-Python==3.10.11
-Flask==2.2.5
+python==3.10.11
+flask==2.2.5
 Werkzeug==2.2.3
 jinja2==3.1.2
 pandas==1.5.3
