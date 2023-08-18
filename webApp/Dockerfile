@@ -11,4 +11,4 @@ COPY . /webApp
 RUN pip install -r requirements.txt
 
 # Define the entry point for the container
-CMD ["python", "main.py"]
+CMD ["/usr/local/bin/python -m pip install --upgrade pip", "python main.py"]
