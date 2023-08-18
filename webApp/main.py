@@ -28,8 +28,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # csv_data=None
 
-import pandas as pd
-print(pd.__version__)
 
 # admin name: admin
 # admin email: admin@gmail.com
