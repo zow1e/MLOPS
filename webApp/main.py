@@ -107,8 +107,8 @@ def isweekday(dd):
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Zowie
-
-@app.route('/anomalyDetectionInput', methods=['GET', 'POST'])
+# anomalyDetectionInput
+@app.route('/', methods=['GET', 'POST'])
 def create_user():
     from forms import signupForm
     signup = signupForm(request.form)
