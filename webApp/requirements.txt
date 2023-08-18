@@ -1,5 +1,6 @@
 pip==23.2.1
 gunicorn==21.2.0
+WTForms==3.0.1
 Pandas==1.5.3
 Flask==2.2.5
 Werkzeug==2.2.3
