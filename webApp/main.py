@@ -17,12 +17,11 @@ import datetime
 # from werkzeug.utils import secure_filename
 # # from flask_login import LoginManager
 # from werkzeug.datastructures import CombinedMultiDict
-import smtplib
-from email.message import EmailMessage
+# import smtplib
+# from email.message import EmailMessage
 
 
 import hydra
-from hydra import utils
 
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
